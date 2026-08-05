@@ -35,8 +35,8 @@
         }
 
         header {
-            background-color: var(--white);
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            background-color: var(--bg-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -54,12 +54,11 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
             text-decoration: none;
         }
 
         .logo-container img {
-            height: 40px;
+            height: 42px;
             width: auto;
             object-fit: contain;
         }
@@ -71,7 +70,7 @@
         }
 
         .nav-links a {
-            color: var(--text-main);
+            color: #D1CDCE;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -79,7 +78,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-red);
+            color: var(--white);
         }
 
         .btn-nav {
@@ -106,10 +105,19 @@
             font-weight: 700;
             margin-bottom: 1.25rem;
             letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #D1CDCE;
+            margin-top: 0.5rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 300;
             max-width: 750px;
             margin: 0 auto 2.5rem auto;
@@ -154,17 +162,48 @@
             margin-bottom: 3rem;
         }
 
-        .about-card {
-            background: var(--white);
+        /* Quiénes Somos con fondo translúcido e imagen de stock */
+        .about-section {
+            position: relative;
+            background: linear-gradient(rgba(30, 26, 29, 0.88), rgba(30, 26, 29, 0.88)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 2rem;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-container .section-title {
+            color: var(--white);
+        }
+
+        .about-container .section-subtitle {
+            color: #D1CDCE;
+        }
+
+        .about-card-translucent {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--teal-color);
-            font-size: 1.15rem;
-            color: var(--text-main);
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #F3F4F6;
+            text-align: left;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-card-translucent p + p {
+            margin-top: 1.5rem;
         }
 
         .card-grid {
@@ -175,16 +214,31 @@
 
         .card {
             background: var(--white);
-            padding: 2.5rem;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border-color);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .card h3 {
@@ -244,7 +298,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px;
+            max-height: 250px;
             padding-bottom: 1.5rem;
         }
 
@@ -279,9 +333,20 @@
 
         .contact-info-item {
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
 
-        .contact-info-item label {
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--teal-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-details label {
             display: block;
             font-size: 0.85rem;
             font-weight: 600;
@@ -291,16 +356,27 @@
             letter-spacing: 0.5px;
         }
 
-        .contact-info-item a, .contact-info-item p {
+        .contact-details a, .contact-details p {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 500;
         }
 
-        .contact-info-item a:hover {
+        .contact-details a:hover {
             color: var(--accent-red);
             text-decoration: underline;
+        }
+
+        .schedule-badge {
+            background-color: #F1F5F9;
+            border-left: 4px solid var(--teal-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
         }
 
         .map-frame {
@@ -328,14 +404,16 @@
             background-color: var(--bg-dark);
             color: var(--white);
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 3.5rem 2rem;
             margin-top: 6rem;
+            border-top: 4px solid var(--accent-red);
         }
 
         footer img {
-            height: 35px;
-            margin-bottom: 1rem;
-            filter: brightness(0) invert(1);
+            height: 55px;
+            width: auto;
+            margin-bottom: 1.25rem;
+            object-fit: contain;
         }
 
         footer p {
@@ -361,34 +439,51 @@
     </header>
 
     <section class="hero">
-        <h1>Infraestructura y Soluciones en Telecomunicaciones</h1>
-        <p>Operamos como filial y socio estratégico de alta capacidad técnica para los principales operadores nacionales, garantizando excelencia y despliegue operativo riguroso.</p>
-        <a href="#contacto" class="btn-primary">Iniciar Conversación Corporativa</a>
+        <h1>
+            COMUNICACIONES PESA
+            <span>Infraestructura y Soluciones en Telecomunicaciones</span>
+        </h1>
+        <p>Operamos como filial y socio estratégico de las principales empresas de telecomunicaciones a nivel nacional, contamos con infraestructura técnica y móvil, garantizando excelencia y un despliegue operativo riguroso en el norte, centro y sur del país.</p>
+        <a href="#contacto" class="btn-primary">Inicia una conversación con nuestro equipo de asesoramiento</a>
     </section>
 
-    <section id="quienes-somos">
-        <h2 class="section-title">Quiénes Somos</h2>
-        <p class="section-subtitle">Trayectoria, solidez y liderazgo operativo en el sector de telecomunicaciones.</p>
-        <div class="about-card">
-            Somos una empresa especializada en telecomunicaciones que opera como filial y socio estratégico de primer nivel para corporaciones líderes como <strong>Telmex</strong> e <strong>Infinitum</strong>. Contamos con infraestructura propia, unidades móviles de despliegue rápido y personal técnico altamente certificado para la ejecución de proyectos complejos a escala nacional.
+    <!-- Sección Quiénes Somos con fondo translúcido e imagen de stock -->
+    <div class="about-section" id="quienes-somos">
+        <div class="about-container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <p class="section-subtitle">Trayectoria, solidez y liderazgo operativo en el sector de telecomunicaciones y construcción.</p>
+            
+            <div class="about-card-translucent">
+                <p>Somos una empresa especializada en telecomunicaciones que opera como filial y socio estratégico de primer nivel para las principales empresas líderes en México como Telmex. Contamos con infraestructura propia, personal técnico altamente certificado y unidades móviles de despliegue rápido para la ejecución de proyectos complejos a escala nacional.</p>
+                <p>Así mismo también contamos con una importante participación en el sector de la construcción en México. Conoce más de nosotros y encuentra soluciones para ti contactándonos por nuestros medios oficiales.</p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <section id="servicios">
         <h2 class="section-title">Nuestros Servicios</h2>
         <p class="section-subtitle">Especialidades técnicas orientadas a la alta disponibilidad y expansión de redes.</p>
         <div class="card-grid">
             <div class="card">
-                <h3>Infraestructura de Red</h3>
-                <p>Despliegue integral, fusión de fibra óptica, optimización y supervisión técnica avanzada de redes de telecomunicaciones con rigor y estándares corporativos.</p>
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Técnicos e instaladores de red" class="card-img">
+                <div class="card-content">
+                    <h3>Infraestructura de Red</h3>
+                    <p>Despliegue integral, fusión de fibra óptica, optimización y supervisión técnica avanzada de redes de telecomunicaciones con rigor y estándares corporativos.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Soporte Administrativo y Operativo</h3>
-                <p>Gestión avanzada de cuentas, logística técnica y control de operaciones de campo bajo procesos corporativos estandarizados y eficientes.</p>
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Alianzas y negocios corporativos" class="card-img">
+                <div class="card-content">
+                    <h3>Soporte Administrativo y Operativo</h3>
+                    <p>Gestión avanzada de cuentas, logística técnica y control de operaciones de campo bajo procesos corporativos estandarizados y eficientes.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Unidades Móviles Especializadas</h3>
-                <p>Despliegue rápido de cuadrillas técnicas equipadas para atención inmediata, mantenimiento preventivo y correctivo en campo a nivel nacional.</p>
+                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Unidades móviles y técnicos en campo" class="card-img">
+                <div class="card-content">
+                    <h3>Unidades Móviles Especializadas</h3>
+                    <p>Despliegue rápido de cuadrillas técnicas equipadas para atención inmediata, mantenimiento preventivo y correctivo en campo a nivel nacional.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -403,7 +498,7 @@
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    Operamos como filial y socio estratégico especializado para empresas líderes de la industria en telecomunicaciones como Telmex e Infinitum.
+                    Operamos como filial y socio estratégico especializado para empresas líderes de la industria en telecomunicaciones como Telmex.
                 </div>
             </div>
             <div class="faq-item">
@@ -412,7 +507,7 @@
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    Disponemos de infraestructura propia, personal altamente calificado y unidades móviles estratégicamente distribuidas para atender proyectos e instalaciones con total flexibilidad operativa a nivel nacional.
+                    Disponemos de infraestructura propia, personal altamente calificado y unidades móviles estratégicamente distribuidas para atender proyectos e instalaciones con total flexibilidad operativa a nivel nacional en el norte, centro y sur del país.
                 </div>
             </div>
         </div>
@@ -424,34 +519,56 @@
         
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="contact-info-item">
-                    <label>Correo Electrónico Oficial</label>
-                    <a href="mailto:atencion.comunicacionespesa@gmail.com">atencion.comunicacionespesa@gmail.com</a>
+                <div class="schedule-badge">
+                    🕒 <strong>Horario de atención:</strong> Lunes a viernes de 10:00 am a 5:00 pm
                 </div>
+
                 <div class="contact-info-item">
-                    <label>WhatsApp Corporativo</label>
-                    <a href="https://wa.me/5215530496807" target="_blank">+52 1 55 3049 6807</a>
+                    <!-- Icono Correo -->
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-4V6l8 5 8-5v2z"/></svg>
+                    <div class="contact-details">
+                        <label>Correo electrónico de atención</label>
+                        <a href="mailto:atencion.comunicacionespesa@gmail.com">atencion.comunicacionespesa@gmail.com</a>
+                    </div>
                 </div>
+
                 <div class="contact-info-item">
-                    <label>Línea Directa de Voz</label>
-                    <a href="tel:+5215575659295">+52 1 55 7565 9295</a>
+                    <!-- Icono WhatsApp -->
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.42 0-2.81-.38-4.03-1.09l-.29-.17-3.03.8.81-2.95-.19-.31c-.79-1.28-1.21-2.77-1.21-4.29 0-4.51 3.67-8.18 8.18-8.18 2.19 0 4.25.85 5.8 2.4 1.55 1.55 2.4 3.6 2.4 5.8 0 4.51-3.67 8.18-8.18 8.18zm4.49-6.09c-.25-.13-1.48-.73-1.71-.82-.23-.09-.4-.13-.57.13-.17.25-.66.82-.81.99-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.79-1.89-.21-.49-.43-.42-.59-.43h-.5c-.17 0-.45.06-.69.32-.24.25-.92.9-.92 2.2 0 1.3 0.94 2.56 1.07 2.74.13.17 1.85 2.82 4.48 3.96.63.27 1.12.43 1.5.55.63.2 1.21.17 1.66.10.51-.08 1.48-.6 1.69-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+                    <div class="contact-details">
+                        <label>Nuestro número de WhatsApp</label>
+                        <a href="https://wa.me/5215530496807" target="_blank">+52 1 55 3049 6807</a>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <!-- Icono Teléfono -->
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <div class="contact-details">
+                        <label>Solo llamadas</label>
+                        <a href="tel:+5215575659295">+52 1 55 7565 9295</a>
+                    </div>
                 </div>
             </div>
 
             <div class="map-card">
                 <div class="contact-info-item" style="margin-bottom: 0.5rem;">
-                    <label>Oficinas Centrales</label>
-                    <p style="font-size: 1rem;">Av. Monte de las Cruces 647, Las Maromas, Cuajimalpa de Morelos, 05710 Ciudad de México, CDMX</p>
+                    <!-- Icono Pin -->
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div class="contact-details">
+                        <label>Oficinas Centrales</label>
+                        <p style="font-size: 1rem;">Av. Monte de las Cruces 647, Las Maromas, Cuajimalpa de Morelos, 05710 Ciudad de México, CDMX</p>
+                    </div>
                 </div>
                 <!-- Mapa embebido de Google Maps -->
                 <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.673891404179!2d-99.2982!3d19.3582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2071800000001%3A0x0!2sAv.+Monte+de+las+Cruces+647%2C+Las+Maromas%2C+Cuajimalpa+de+Morelos%2C+05710+Ciudad+de+M%C3%A9xico%2C+CDMX!5e0!3m2!1ses!2smx!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-                <a href="https://maps.app.goo.gl/QNxcK9tUAws5vsiWA" target="_blank" class="map-btn-link">Ver ubicación exacta en Google Maps &rarr;</a>
+                <a href="https://maps.app.goo.gl/QNxcK9tUAws5vsiWA" target="_blank" class="map-btn-link">📍 Ver ubicación exacta en Google Maps &rarr;</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="LOGO COMUNICACIONES PESA.png" alt="Comunicaciones Pesa Logo">
+        <img src="LOGO COMUNICACIONES PESA.png" alt="Comunicaciones Pesa Logo Completo">
         <p>&copy; 2026 Comunicaciones PESA S.C. Todos los derechos reservados.</p>
     </footer>
 
@@ -461,7 +578,6 @@
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 
-                // Opcional: Cerrar los demás
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
