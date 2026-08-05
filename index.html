@@ -54,13 +54,21 @@
         .logo-container {
             display: flex;
             align-items: center;
+            gap: 12px;
             text-decoration: none;
         }
 
         .logo-container img {
-            height: 42px;
+            height: 38px;
             width: auto;
             object-fit: contain;
+        }
+
+        .brand-title {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-links {
@@ -96,24 +104,24 @@
         .hero {
             background: linear-gradient(135deg, var(--bg-dark) 0%, #2D262A 100%);
             color: var(--white);
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            letter-spacing: -1px;
-            line-height: 1.2;
+        .hero-logo {
+            max-height: 90px;
+            width: auto;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .hero h1 span {
-            display: block;
+        .hero h2 {
             font-size: 1.5rem;
             font-weight: 400;
             color: #D1CDCE;
-            margin-top: 0.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
@@ -162,7 +170,7 @@
             margin-bottom: 3rem;
         }
 
-        /* Quiénes Somos con fondo translúcido e imagen de stock */
+        /* Quiénes Somos con fondo de torre de telecomunicaciones */
         .about-section {
             position: relative;
             background: linear-gradient(rgba(30, 26, 29, 0.88), rgba(30, 26, 29, 0.88)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1920&q=80');
@@ -339,8 +347,8 @@
         }
 
         .contact-icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: var(--teal-color);
             flex-shrink: 0;
             margin-top: 2px;
@@ -368,15 +376,36 @@
             text-decoration: underline;
         }
 
-        .schedule-badge {
-            background-color: #F1F5F9;
+        .schedule-box {
+            background-color: #2D262A;
             border-left: 4px solid var(--teal-color);
-            padding: 1rem;
+            padding: 1.25rem;
             border-radius: 6px;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            font-weight: 500;
+            margin-bottom: 1.75rem;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .schedule-box .contact-icon {
+            fill: var(--white);
+        }
+
+        .schedule-text label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #A7F3D0;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-text p {
+            font-size: 0.98rem;
+            color: #F3F4F6;
+            font-weight: 400;
         }
 
         .map-frame {
@@ -428,6 +457,7 @@
         <div class="nav-container">
             <a href="#" class="logo-container">
                 <img src="ISO COMUNICACIONES PESA.png" alt="Comunicaciones Pesa Isotipo">
+                <span class="brand-title">COMUNICACIONES PESA</span>
             </a>
             <nav class="nav-links">
                 <a href="#quienes-somos">Quiénes Somos</a>
@@ -439,15 +469,13 @@
     </header>
 
     <section class="hero">
-        <h1>
-            COMUNICACIONES PESA
-            <span>Infraestructura y Soluciones en Telecomunicaciones</span>
-        </h1>
+        <img src="LOGO COMUNICACIONES PESA.png" alt="Comunicaciones Pesa Logo Completo" class="hero-logo">
+        <h2>Infraestructura y Soluciones en Telecomunicaciones</h2>
         <p>Operamos como filial y socio estratégico de las principales empresas de telecomunicaciones a nivel nacional, contamos con infraestructura técnica y móvil, garantizando excelencia y un despliegue operativo riguroso en el norte, centro y sur del país.</p>
         <a href="#contacto" class="btn-primary">Inicia una conversación con nuestro equipo de asesoramiento</a>
     </section>
 
-    <!-- Sección Quiénes Somos con fondo translúcido e imagen de stock -->
+    <!-- Sección Quiénes Somos con fondo de torre de telecomunicaciones -->
     <div class="about-section" id="quienes-somos">
         <div class="about-container">
             <h2 class="section-title">Quiénes Somos</h2>
@@ -465,21 +493,21 @@
         <p class="section-subtitle">Especialidades técnicas orientadas a la alta disponibilidad y expansión de redes.</p>
         <div class="card-grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Técnicos e instaladores de red" class="card-img">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Infraestructura de red y fibra óptica" class="card-img">
                 <div class="card-content">
                     <h3>Infraestructura de Red</h3>
                     <p>Despliegue integral, fusión de fibra óptica, optimización y supervisión técnica avanzada de redes de telecomunicaciones con rigor y estándares corporativos.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Alianzas y negocios corporativos" class="card-img">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Técnico con casco amarillo trabajando" class="card-img">
                 <div class="card-content">
                     <h3>Soporte Administrativo y Operativo</h3>
                     <p>Gestión avanzada de cuentas, logística técnica y control de operaciones de campo bajo procesos corporativos estandarizados y eficientes.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Unidades móviles y técnicos en campo" class="card-img">
+                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Técnicos especializados en campo" class="card-img">
                 <div class="card-content">
                     <h3>Unidades Móviles Especializadas</h3>
                     <p>Despliegue rápido de cuadrillas técnicas equipadas para atención inmediata, mantenimiento preventivo y correctivo en campo a nivel nacional.</p>
@@ -515,12 +543,17 @@
 
     <section id="contacto">
         <h2 class="section-title">Contáctanos</h2>
-        <p class="section-subtitle">Canales oficiales de comunicación corporativa y ubicación de oficinas centrales.</p>
+        <p class="section-subtitle">Nuestros canales oficiales y la ubicación de nuestras oficinas.</p>
         
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="schedule-badge">
-                    🕒 <strong>Horario de atención:</strong> Lunes a viernes de 10:00 am a 5:00 pm
+                <div class="schedule-box">
+                    <!-- Icono Reloj -->
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    <div class="schedule-text">
+                        <label>Horario de atención</label>
+                        <p>Lunes a viernes de 10:00 am a 5:00 pm</p>
+                    </div>
                 </div>
 
                 <div class="contact-info-item">
@@ -562,7 +595,7 @@
                 </div>
                 <!-- Mapa embebido de Google Maps -->
                 <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.673891404179!2d-99.2982!3d19.3582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2071800000001%3A0x0!2sAv.+Monte+de+las+Cruces+647%2C+Las+Maromas%2C+Cuajimalpa+de+Morelos%2C+05710+Ciudad+de+M%C3%A9xico%2C+CDMX!5e0!3m2!1ses!2smx!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-                <a href="https://maps.app.goo.gl/QNxcK9tUAws5vsiWA" target="_blank" class="map-btn-link">📍 Ver ubicación exacta en Google Maps &rarr;</a>
+                <a href="https://maps.app.goo.gl/QNxcK9tUAws5vsiWA" target="_blank" class="map-btn-link">Ver ubicación exacta en Google Maps &rarr;</a>
             </div>
         </div>
     </section>
