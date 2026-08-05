@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicaciones Pesa | Infraestructura y Telecomunicaciones</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A2540;
+            --secondary: #00D4B2;
+            --accent: #1E3A8A;
+            --bg-light: #F8FAFC;
+            --text-main: #334155;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-btn {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 9rem 5% 6rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #E2E8F0;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 212, 178, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 178, 0.6);
+        }
+
+        /* Main Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+            border: 1px solid #E2E8F0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--secondary);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive menu mobile */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Simplificado para evitar romper mobile, puedes expandirlo después */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Barra de Navegación -->
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-tower-cell"></i>COMUNICACIONES<span>PESA</span></a>
+        <nav>
+            <a href="#quienes-somos">Quiénes Somos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacto" class="nav-btn">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Infraestructura y Soluciones en Telecomunicaciones</h1>
+        <p>Socio estratégico con alta capacidad técnica y unidades móviles para cobertura total a nivel nacional.</p>
+        <a href="#contacto" class="btn-main"><i class="fa-solid fa-phone"></i> Llámanos Ahora</a>
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+
+        <!-- Quiénes Somos -->
+        <section id="quienes-somos" style="margin-bottom: 6rem;">
+            <h2 class="section-title">¿Quiénes Somos?</h2>
+            <p class="section-subtitle">Conoce nuestra trayectoria y el respaldo que ofrecemos en el sector de las telecomunicaciones.</p>
+            <div class="card" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.05rem; line-height: 1.8;">
+                    Somos una empresa especializada en telecomunicaciones que opera como socio estratégico (*fielder* / tercera) para los principales operadores del país como <strong>Telmex</strong> e <strong>Izzi</strong>. Contamos con infraestructura propia, unidades móviles y personal técnico altamente calificado para brindar cobertura total en ventas, instalación y mantenimiento.
+                </p>
+            </div>
+        </section>
+
+        <!-- Servicios e Infraestructura -->
+        <section id="servicios" style="margin-bottom: 6rem;">
+            <h2 class="section-title">Nuestros Servicios e Infraestructura</h2>
+            <p class="section-subtitle">Soluciones integrales diseñadas para garantizar eficiencia y conectividad.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Telecomunicaciones & Ventas</h3>
+                    <p>Estrategias de penetración de mercado, comercialización de servicios de voz, internet y televisión con altos estándares de calidad y atención al cliente.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-truck-fast"></i> Infraestructura & Personal Técnico</h3>
+                    <p>Despliegue de red, mantenimiento preventivo y correctivo con unidades móviles equipadas y personal con amplia certificación en campo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (Preguntas Frecuentes) -->
+        <section id="faq" style="margin-bottom: 6rem;">
+            <h2 class="section-title">Preguntas Frecuentes (FAQ)</h2>
+            <p class="section-subtitle">Resolvemos las dudas más comunes sobre nuestra operación.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">¿Con qué operadores principales colaboran? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Actualmente operamos de manera directa como socio estratégico para empresas líderes de la industria como Telmex e Izzi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuentan con cobertura a nivel nacional o regional? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Disponemos de unidades móviles y capacidad logística para atender proyectos e instalaciones con cobertura flexible y eficiente.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo puedo contactar al equipo corporativo? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Puedes comunicarte con nosotros directamente a través de nuestros canales oficiales o presionando el botón de llamada en la parte superior.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto Corporativo</h2>
+            <p class="section-subtitle">Estamos listos para colaborar en tu próximo proyecto de infraestructura.</p>
+            <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 1.5rem;"><i class="fa-solid fa-envelope" style="color: var(--secondary); margin-right: 8px;"></i> atencion.comunicacionespesa@gmail.com</p>
+                <a href="tel:5500000000" class="btn-main"><i class="fa-solid fa-phone-volume"></i> Contactar Soporte</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Comunicaciones Pesa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
