@@ -35,6 +35,7 @@
 
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
+  html, body{ overflow-x:hidden; max-width:100%; }
   body{
     font-family:var(--f-body); background:var(--alabaster); color:var(--text-main);
     line-height:1.65; -webkit-font-smoothing:antialiased;
@@ -83,7 +84,7 @@
     }
     .nav-links.open{ max-height:280px; }
     .nav-links a{ width:100%; padding:1rem 1.75rem; border-top:1px solid var(--line-dark); }
-    .btn-nav{ display:inline-block; margin:1rem 1.75rem; }
+    .btn-nav{ display:inline-block; width:auto; margin:1rem 1.75rem; }
     .nav-toggle{ display:block; }
   }
 
@@ -130,16 +131,9 @@
   @keyframes dashmove{ to{ stroke-dashoffset:-400; } }
 
   /* --- Escena hero: antena + planeta + ondas + comunidades --- */
-  .hero-visual{ position:relative; height:340px; }
-  .hero-visual svg{ width:100%; height:100%; }
-
-  .pulse-dot{ animation:pulseDot 2.6s ease-in-out infinite; transform-origin:center; }
-  .pulse-ring{ animation:pulseRing 2.6s ease-out infinite; transform-origin:center; }
-  @keyframes pulseDot{ 0%,100%{ opacity:1; } 50%{ opacity:0.6; } }
-  @keyframes pulseRing{
-    0%{ opacity:0.55; transform:scale(0.4); }
-    100%{ opacity:0; transform:scale(2.6); }
-  }
+  .hero-visual{ position:relative; height:340px; display:flex; align-items:center; justify-content:center; }
+  .hero-logo-mark{ max-height:260px; max-width:80%; width:auto; object-fit:contain; opacity:0.96; }
+  @media (max-width:920px){ .hero-visual{ height:200px; margin-top:0.5rem; } .hero-logo-mark{ max-height:170px; } }
 
   /* ============ SECTION SHELL ============ */
   section{ padding:6.5rem 0; }
@@ -176,7 +170,8 @@
     padding:1rem;
   }
   .scene-frame svg{ width:100%; height:auto; display:block; }
-  .scene-video{ width:100%; height:auto; display:block; border-radius:2px; }
+  .video-bleed{ width:100vw; margin-left:calc(50% - 50vw); overflow:hidden; }
+  .scene-video{ width:100%; height:auto; display:block; }
 
   .grid-path{ fill:none; stroke:var(--teal); stroke-width:0.9; opacity:0.6; transition:stroke-dashoffset 1.8s ease; }
   .water-fill{ fill:rgba(4,168,188,0.16); stroke:var(--teal-bright); stroke-width:1; opacity:0; transition:opacity 1s ease .4s; }
@@ -247,7 +242,8 @@
   /* ============ CONTACTO ============ */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; align-items:stretch; }
   @media (max-width:820px){ .contact-grid{ grid-template-columns:1fr; } }
-  .contact-card, .map-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:2.2rem; }
+  .contact-card, .map-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:2.2rem; min-width:0; }
+  .contact-item a, .contact-item p{ overflow-wrap:anywhere; }
   .schedule-box{
     background:var(--shadow); border-radius:var(--radius); padding:1.1rem 1.3rem; margin-bottom:1.6rem;
     display:flex; gap:0.9rem; align-items:flex-start; border-left:3px solid var(--teal);
@@ -279,7 +275,7 @@
 <header>
   <div class="nav">
     <a href="#" class="brand">
-      <img src="LOGO COMUNICACIONES PESA (1).png" alt="Comunicaciones Pesa">
+      <img src="LOGO 2.png" alt="Comunicaciones Pesa">
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navLinks">
@@ -301,8 +297,8 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">El músculo de las telecomunicaciones en México</p>
-      <h1>La infraestructura que las <em>redes</em> no construyen solas</h1>
-      <p>Somos el motor comercial y técnico detrás de las principales telecomunicaciones de México: la fuerza que las operadoras despliegan cuando necesitan escalar más rápido de lo que pueden construir por sí mismas.</p>
+      <h1>Comunicamos a México, cable por cable</h1>
+      <p>Somos el motor técnico y comercial que tu empresa necesita. Ya trabajamos con las empresas de telecomunicaciones más grandes del país, reforzando sus operaciones y potenciando sus resultados a niveles nunca antes vistos. ¿Nuestro objetivo? Dar servicio a todo el territorio mexicano.</p>
       <div>
         <a href="#contacto" class="btn-primary">Hablar con nuestro equipo →</a>
         <a href="#quienes-somos" class="btn-secondary">Quiénes somos</a>
@@ -310,25 +306,7 @@
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 340 340">
-        <circle cx="170" cy="170" r="3" class="pulse-dot" fill="#04A8BC"/>
-        <circle cx="170" cy="170" r="10" class="pulse-ring" stroke="#04A8BC" stroke-width="1"/>
-        <circle cx="170" cy="170" r="10" class="pulse-ring" stroke="#04A8BC" stroke-width="1" style="animation-delay:0.9s"/>
-        <circle cx="90" cy="90" r="2.5" fill="#BD1722"/>
-        <circle cx="250" cy="110" r="2.5" fill="#BD1722"/>
-        <circle cx="80" cy="250" r="2.5" fill="#BD1722"/>
-        <circle cx="260" cy="255" r="2.5" fill="#BD1722"/>
-        <circle cx="170" cy="60" r="2" fill="#04A8BC" opacity="0.7"/>
-        <circle cx="60" cy="170" r="2" fill="#04A8BC" opacity="0.7"/>
-        <circle cx="280" cy="180" r="2" fill="#04A8BC" opacity="0.7"/>
-        <line x1="170" y1="170" x2="90" y2="90" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="250" y2="110" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="80" y2="250" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="260" y2="255" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="170" y2="60" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="60" y2="170" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="170" y1="170" x2="280" y2="180" stroke="#3a4448" stroke-width="1" stroke-dasharray="2 4"/>
-      </svg>
+      <img src="LOGO COMUNICACIONES PESA (1).png" alt="" class="hero-logo-mark">
     </div>
   </div>
 </section>
@@ -361,13 +339,16 @@
       <h2>Hasta donde el mapa se pone difícil</h2>
       <p>Montañas, desierto o zona remota: nos encargamos de hacer llegar la red a todo el territorio mexicano. El terreno no es rival para nuestra operación.</p>
     </div>
+  </div>
 
-    <div class="scene-frame reveal">
-      <video class="scene-video" autoplay muted loop playsinline poster="video_poster.jpg">
-        <source src="VIDEO GEo 1 1.mp4" type="video/mp4">
-      </video>
-    </div>
-    <p class="scene-caption reveal">Vista satelital · cobertura en todo el territorio nacional</p>
+  <div class="video-bleed reveal">
+    <video class="scene-video" autoplay muted loop playsinline poster="video_poster.jpg">
+      <source src="VIDEO GEo 1 1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="wrap">
+    <p class="scene-caption reveal" style="margin-top:1.4rem;">Vista satelital · cobertura en todo el territorio nacional</p>
   </div>
 </section>
 
@@ -501,10 +482,10 @@
 <footer>
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <img src="LOGO 2.png" alt="Comunicaciones Pesa">
+      <img src="ISO COMUNICACIONES PESA.png" alt="Comunicaciones Pesa">
       <span class="footer-tag">Operación · Infraestructura · Conectividad</span>
     </div>
-    <p class="copy">&copy; 2026 Comunicaciones PESA S.C. Todos los derechos reservados.</p>
+    <p class="copy">&copy; 2026 Comunicaciones PESA S.A. de C.V. Todos los derechos reservados.</p>
   </div>
 </footer>
 
