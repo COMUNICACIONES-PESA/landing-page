@@ -171,7 +171,17 @@
   }
   .scene-frame svg{ width:100%; height:auto; display:block; }
   .video-bleed{ width:100vw; margin-left:calc(50% - 50vw); overflow:hidden; }
-  .scene-video{ width:100%; height:auto; display:block; }
+  .scene-video{ width:100%; height:auto; display:block; opacity:0; transition:opacity .6s ease; }
+  .scene-video.is-ready{ opacity:1; }
+  @media (min-width:761px){
+    .video-bleed{
+      width:auto; margin-left:0; max-width:1180px; margin:0 auto;
+      border:1px solid var(--line-dark); border-radius:var(--radius); overflow:hidden;
+      background:radial-gradient(ellipse at 50% 30%, rgba(2,128,144,0.12), transparent 70%);
+      padding:1rem;
+    }
+    .scene-video{ border-radius:2px; }
+  }
 
   .grid-path{ fill:none; stroke:var(--teal); stroke-width:0.9; opacity:0.6; transition:stroke-dashoffset 1.8s ease; }
   .water-fill{ fill:rgba(4,168,188,0.16); stroke:var(--teal-bright); stroke-width:1; opacity:0; transition:opacity 1s ease .4s; }
@@ -342,7 +352,7 @@
   </div>
 
   <div class="video-bleed reveal">
-    <video class="scene-video" autoplay muted loop playsinline poster="video_poster.jpg">
+    <video class="scene-video" id="rutaVideo" autoplay muted loop playsinline poster="video_poster.jpg">
       <source src="VIDEO GEo 1 1.mp4" type="video/mp4">
     </video>
   </div>
@@ -490,7 +500,6 @@
 </footer>
 
 <script>
-  // --- FAQ acordeón ---
   document.querySelectorAll('.faq-q').forEach(q=>{
     q.addEventListener('click', ()=>{
       const item = q.parentElement;
@@ -502,6 +511,9 @@
   // --- Menú móvil ---
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
+  const rutaVideo = document.getElementById('rutaVideo');
+  if(rutaVideo) rutaVideo.addEventListener('canplay', ()=> rutaVideo.classList.add('is-ready'));
+
   navToggle.addEventListener('click', ()=>{
     const open = navLinks.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', open);
