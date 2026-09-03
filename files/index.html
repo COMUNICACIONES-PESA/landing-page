@@ -236,9 +236,6 @@
     display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center;
     margin-bottom:4rem;
   }
-  .historia-beat-alt{
-    grid-template-columns:1fr 1.4fr 1fr;
-  }
   .historia-beat-alt{ direction:rtl; } /* alterna texto/foto de lado */
   .historia-beat-alt > *{ direction:ltr; }
   .historia-beat p{ font-size:1.15rem; line-height:1.65; color:#D8D3D5; }
@@ -255,19 +252,22 @@
   .historia-grid-final{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:820px; margin:0 auto; }
   @media (max-width:600px){ .historia-grid-final{ grid-template-columns:1fr; } }
 
-  .historia-photo{
-    overflow:hidden; border-radius:var(--radius);
-    border:1px solid var(--line-dark);
-  }
-  .historia-beat .historia-photo{ aspect-ratio:4/3; } /* fotos 1 y 2, horizontales */
-  .historia-beat-vertical .historia-photo{ aspect-ratio:3/4; } /* foto 3, vertical */
-  .historia-grid-final .historia-photo{ aspect-ratio:3/4; } /* fotos 4 y 5, verticales */
+  .historia-photo{ margin:0; }
   .historia-photo img{
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; overflow:hidden; border-radius:var(--radius); border:1px solid var(--line-dark);
+    object-fit:cover; display:block;
     filter:grayscale(0.35) sepia(0.12) contrast(1.03);
     transition:filter .3s ease, transform .4s ease;
   }
-  .historia-photo:hover img{ filter:grayscale(0) sepia(0); transform:scale(1.04); }
+  .historia-beat .historia-photo img{ aspect-ratio:4/3; } /* foto 1, horizontal */
+  .historia-beat-alt .historia-photo img{ aspect-ratio:3/4; } /* foto 6, vertical */
+  .historia-beat-vertical .historia-photo img{ aspect-ratio:3/4; } /* foto 2, vertical */
+  .historia-grid-final .historia-photo img{ aspect-ratio:3/4; } /* fotos 3, 4 y 5, verticales */
+  .historia-photo:hover img{ filter:grayscale(0) sepia(0); transform:scale(1.03); }
+  .historia-photo figcaption{
+    font-style:italic; font-size:0.85rem; color:#A9A3A6;
+    margin-top:0.6rem; line-height:1.4;
+  }
 
   .services-note{
     margin-top:2rem; padding:1.1rem 1.4rem; border:1px dashed var(--line); border-radius:var(--radius);
@@ -352,7 +352,7 @@
     <div>
       <p class="eyebrow">El músculo de las telecomunicaciones en México</p>
       <h1>Comunicamos a México, cable por cable</h1>
-      <p>Somos el motor técnico y comercial que tu empresa necesita. Ya trabajamos con las empresas de telecomunicaciones más grandes del país, reforzando sus operaciones y potenciando sus resultados a niveles nunca antes vistos. <strong>¿Nuestro objetivo?</strong> Dar servicio a todo el territorio mexicano.</p>
+      <p>Somos el motor técnico y comercial que tu empresa necesita. Ya trabajamos con las empresas de telecomunicaciones más grandes del país, reforzando sus operaciones y potenciando sus resultados a niveles nunca antes vistos. ¿Nuestro objetivo? Dar servicio a todo el territorio mexicano.</p>
       <div>
         <a href="#contacto" class="btn-primary">Hablar con nuestro equipo →</a>
         <a href="#quienes-somos" class="btn-secondary">Quiénes somos</a>
@@ -499,26 +499,44 @@
     </div>
 
     <div class="historia-beat reveal">
-      <p>Nuestra trayectoria habla por sí sola: dominamos el campo y conocemos las formas correctas para cumplir nuestros objetivos, sin importar qué obstáculo se atraviese en el camino.</p>
-      <div class="historia-photo"><img src="historia-1.jpg" alt="Una de las primeras unidades de Comunicaciones Pesa en operación nocturna"></div>
+      <p>Nuestra trayectoria habla por sí sola: dominamos el campo y conocemos las formas correctas de cumplir nuestros objetivos, sin importar qué obstáculo se atraviese en el camino.</p>
+      <figure class="historia-photo">
+        <img src="historia-1.jpg" alt="Una unidad móvil del equipo de Comunicaciones Pesa">
+        <figcaption>Una unidad móvil del equipo de Comunicaciones PESA.</figcaption>
+      </figure>
     </div>
 
     <div class="historia-beat historia-beat-alt reveal">
-      <div class="historia-photo"><img src="historia-6.jpg" alt="Luis Peña, fundador de Comunicaciones Pesa"></div>
       <p>Comunicaciones PESA nace hace más de 20 años gracias a Luis Peña, quien dada su gran destreza en el área convocó a un grupo de técnicos en Jalisco junto con su hijo, Javier Peña. En conjunto, acercaron a numerosas comunidades a servicios de excelencia. Con los años, expandimos nuestras operaciones hasta cubrir todo lo que requiere el campo de las telecomunicaciones en México, buscando que cada vez más familias mexicanas tengan una red digna.</p>
-      <div class="historia-photo"><img src="historia-2.jpg" alt="El equipo original de Comunicaciones Pesa junto a una unidad Telmex"></div>
+      <figure class="historia-photo">
+        <img src="historia-6.jpg" alt="Luis Peña, fundador de Comunicaciones Pesa">
+        <figcaption>Luis Peña, fundador de Comunicaciones PESA.</figcaption>
+      </figure>
     </div>
 
     <div class="historia-beat historia-beat-vertical reveal">
       <p>Comunicaciones PESA es la prueba de que el tiempo no solo se transforma en experiencia — también se transforma en confianza, profesionalismo y una atención excepcional al detalle.</p>
-      <div class="historia-photo"><img src="historia-3.jpg" alt="Técnico realizando una instalación en campo sobre un poste"></div>
+      <figure class="historia-photo">
+        <img src="historia-2.jpg" alt="El primer grupo de técnicos de Comunicaciones Pesa">
+        <figcaption>El primer grupo de técnicos de Comunicaciones PESA. (Querétaro, 2000.)</figcaption>
+      </figure>
     </div>
 
     <p class="historia-question reveal">¿Te gustaría formar parte de esta historia?</p>
 
     <div class="historia-grid-final reveal-group">
-      <div class="historia-photo reveal"><img src="historia-4.jpg" alt="Técnico de Comunicaciones Pesa trabajando en una instalación aérea"></div>
-      <div class="historia-photo reveal"><img src="historia-5.jpg" alt="Torre de telecomunicaciones Telmex instalada por Comunicaciones Pesa"></div>
+      <figure class="historia-photo reveal">
+        <img src="historia-3.jpg" alt="Javier Peña realizando una instalación en la comunidad de Tlacote">
+        <figcaption>Javier Peña (hijo de Luis Peña), realizando una instalación en la comunidad de Tlacote. (Querétaro, 2002.)</figcaption>
+      </figure>
+      <figure class="historia-photo reveal">
+        <img src="historia-4.jpg" alt="Instalación en la comunidad de Higuerillas">
+        <figcaption>Instalación en la comunidad de Higuerillas. (Bernal, 2002.)</figcaption>
+      </figure>
+      <figure class="historia-photo reveal">
+        <img src="historia-5.jpg" alt="Levantado de un NAM en una torre de radio Telmex">
+        <figcaption>Levantado de un NAM en una torre de radio Telmex. (San Miguelito, 2003.)</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -544,12 +562,12 @@
 
         <div class="contact-item">
           <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.42 0-2.81-.38-4.03-1.09l-.29-.17-3.03.8.81-2.95-.19-.31c-.79-1.28-1.21-2.77-1.21-4.29 0-4.51 3.67-8.18 8.18-8.18 2.19 0 4.25.85 5.8 2.4 1.55 1.55 2.4 3.6 2.4 5.8 0 4.51-3.67 8.18-8.18 8.18z"/></svg>
-          <div><label>WhatsApp</label><a href="https://wa.me/5213313504404" target="_blank" rel="noopener">+52 1 33 1350 4404</a></div>
+          <div><label>WhatsApp</label><a href="https://wa.me/5215530496807" target="_blank" rel="noopener">+52 1 55 3049 6807</a></div>
         </div>
 
         <div class="contact-item">
           <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <div><label>Solo llamadas</label><a href="tel:5554444076">55 5444 4076</a></div>
+          <div><label>Solo llamadas</label><a href="tel:+5215575659295">+52 1 55 7565 9295</a></div>
         </div>
       </div>
 
