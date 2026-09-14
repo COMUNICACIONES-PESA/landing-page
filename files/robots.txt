@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://comunicacionespesa.com.mx/sitemap.xml
